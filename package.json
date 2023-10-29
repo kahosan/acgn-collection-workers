@@ -1,0 +1,19 @@
+{
+  "name": "acgn-collection-workers",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts"
+  },
+  "dependencies": {
+    "cheerio": "1.0.0-rc.12",
+    "hono": "^3.8.2",
+    "ts-pattern": "^5.0.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230914.0",
+    "eslint": "^8.52.0",
+    "eslint-config-kaho": "^2.0.9",
+    "wrangler": "^3.15.0"
+  }
+}
