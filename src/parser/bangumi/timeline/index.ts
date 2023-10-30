@@ -32,8 +32,11 @@ export async function parser(body: TimelinePayload) {
       if (action.desc === '、') {
         action.desc = $text.last().text().trim();
 
-        if ($text.text().includes('小组') && !action.desc)
-          action.desc = $text.eq(2).text().trim();
+        if (
+          ['好友', '小组'].some(text => $text.text().includes(text))
+          && !action.desc
+        )
+          action.desc = $text.eq($text.length - 4).text().trim();
 
         // 收藏了多个人物的情况
         if (!action.desc) {
@@ -63,7 +66,7 @@ export async function parser(body: TimelinePayload) {
           if (
             (
               i === 0
-              || (body.type !== 'relation' && href.includes('/user/'))
+              || (['all', 'relation'].every(type => body.type !== type) && href.includes('/user/'))
               || user.name === text
             )
             && !body.userId
