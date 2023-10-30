@@ -12,6 +12,6 @@ export const handler: Handler = async (c) => {
   } catch (e) {
     console.error(e);
     c.status(500);
-    return c.json({ error: (e as Error).message });
+    return c.json({ title: (e as Error).message });
   }
 };
