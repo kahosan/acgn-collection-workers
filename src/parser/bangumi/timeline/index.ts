@@ -45,7 +45,7 @@ export async function parser(body: TimelinePayload) {
       }
 
       const $avatar = $(li).find('.avatarNeue');
-      if ($avatar.length > 0) avatar = $($avatar).css('background-image')?.match(/url\((.+)\)/)?.at(1) ?? '';
+      if ($avatar.length > 0) avatar = $($avatar).css('background-image')?.match(/url\('(.+)'\)/)?.at(1) ?? '';
       const $user = $info.find('> a:not(.rr)')
         .filter((_, a) => a.attribs.href.includes('/user/'))
         .get(0);
