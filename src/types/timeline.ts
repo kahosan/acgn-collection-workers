@@ -1,46 +1,46 @@
 export type TimelineScope = 'friend' | 'all' | 'me';
 
 /**
- * @description The label and value of TimelineType are as follows:
- * - 'all': 全站
- * - 'say': 吐槽
- * - 'subject': 收藏
- * - 'progress': 进度
- * - 'blog': 日志
- * - 'mono': 人物
- * - 'relation': 好友
- * - 'group': 小组
- * - 'wiki': 维基
- * - 'index': 目录
- */
+  * @description The label and value of TimelineType are as follows:
+  * - 'all': 全站
+  * - 'say': 吐槽
+  * - 'subject': 收藏
+  * - 'progress': 进度
+  * - 'blog': 日志
+  * - 'mono': 人物
+  * - 'relation': 好友
+  * - 'group': 小组
+  * - 'wiki': 维基
+  * - 'index': 目录
+  */
 export type TimelineType =
-   | 'all'
-   | 'say'
-   | 'subject'
-   | 'progress'
-   | 'blog'
-   | 'mono'
-   | 'relation'
-   | 'group'
-   | 'wiki'
-   | 'index'
-   | '';
+  | 'all'
+  | 'say'
+  | 'subject'
+  | 'progress'
+  | 'blog'
+  | 'mono'
+  | 'relation'
+  | 'group'
+  | 'wiki'
+  | 'index'
+  | '';
 
 export interface TimelinePayload {
   userId?: string
   /**
- * @description The label and value of TimelineType are as follows:
- * - 'all': 全站
- * - 'say': 吐槽
- * - 'subject': 收藏
- * - 'progress': 进度
- * - 'blog': 日志
- * - 'mono': 人物
- * - 'relation': 好友
- * - 'group': 小组
- * - 'wiki': 维基
- * - 'index': 目录
- */
+    * @description The label and value of TimelineType are as follows:
+    * - 'all': 全站
+    * - 'say': 吐槽
+    * - 'subject': 收藏
+    * - 'progress': 进度
+    * - 'blog': 日志
+    * - 'mono': 人物
+    * - 'relation': 好友
+    * - 'group': 小组
+    * - 'wiki': 维基
+    * - 'index': 目录
+    */
   type: TimelineType
   page: number
 }
