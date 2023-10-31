@@ -4,7 +4,7 @@ import type { Handler } from 'hono';
 import type { TimelinePayload } from '~/types/timeline';
 
 export const handler: Handler = async (c) => {
-  const { userId, type, page } = await c.req.json<TimelinePayload>();
+  const { userId, type, page } = c.req.query<TimelinePayload>();
 
   try {
     const timeline = await parser({ userId, type, page });

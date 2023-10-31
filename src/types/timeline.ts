@@ -42,7 +42,7 @@ export interface TimelinePayload {
     * - 'index': 目录
     */
   type: TimelineType
-  page: number
+  page: string
 }
 
 export type Timeline = Array<{

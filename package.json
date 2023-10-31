@@ -15,5 +15,10 @@
     "eslint": "^8.52.0",
     "eslint-config-kaho": "^2.0.9",
     "wrangler": "^3.15.0"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "hono@3.9.0": "patches/hono@3.9.0.patch"
+    }
   }
 }

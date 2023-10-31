@@ -7,13 +7,13 @@ base: `https://acgn-collection-workers.kahosan.workers.dev`
 获取 Bangumi 的时间胶囊，可以解析「全站」和「自己」的数据，但登入视角的时间胶囊数据暂不支持
 
 ```http
-POST /timeline
+GET /timeline?type=all&page=1
 ```
 
 | Parameter | Type | Description | Required |
 | :---: | :---: | :---: | :---: |
 | `userId` | `string` | 可以是用户名也可以是 ID，不传递时返回全站数据 | `false` |
-| `type` | `string` | 见下表 | `true` |
+| `type` | `string` | 见下表 | `false` |
 | `page` | `number` | 页码，全站的数据只有一页 | `false` |
 
 | Type | Description |
@@ -29,15 +29,6 @@ POST /timeline
 | `group` | 小组 |
 | `wiki` | 维基 |
 | `index` | 目录 |
-
-## Example
-
-```json
-{
-  "type": "all",
-  "page": 1
-}
-```
 
 ## Response
 
@@ -116,7 +107,7 @@ type Timeline = Array<{
 interface TimelineItem {
   user: {
     name: string
-    href: string // 只有第一个 ul 中的 li 才有
+    href: string
     avatar: string
   }
   time: string
