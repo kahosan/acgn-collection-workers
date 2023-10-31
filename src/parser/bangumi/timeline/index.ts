@@ -11,13 +11,13 @@ export async function parser(body: TimelinePayload) {
   const $ = load(html);
   $('.Header').each((_, el) => {
     const date = $(el).text();
-    const ul = $(el).next('ul');
+    const $ul = $(el).next('ul');
 
     const items: TimelineItem[] = [];
 
     let avatar = '';
 
-    ul.find('li').each((_, li) => {
+    $ul.find('li').each((_, li) => {
       const $info = $(li).find(body.userId ? '.info_full' : '.info');
       const $text = $info.contents()
         .filter(function () {
@@ -66,7 +66,7 @@ export async function parser(body: TimelinePayload) {
           if (
             (
               i === 0
-              || (['all', 'relation'].every(type => body.type !== type) && href.includes('/user/'))
+              || (['all', 'relation', ''].every(type => body.type !== type) && href.includes('/user/'))
               || user.name === text
             )
             && !body.userId
