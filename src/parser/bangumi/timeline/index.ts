@@ -1,11 +1,16 @@
 import { load } from 'cheerio';
 
-import { fetchHTML } from './common';
+import { host } from '../constans';
+import { fetcher } from '~/lib/fetcher';
 
 import type { TimelinePayload, Timeline, TimelineItem } from '~/types/timeline';
 
-export async function parser(body: TimelinePayload) {
-  const html = await fetchHTML(body).then(r => r.text());
+export async function parser({ userId, type, page }: TimelinePayload) {
+  const url = userId
+    ? `${host}/user/${userId}/timeline?type=${type}&page=${page}&ajax=1`
+    : `${host}/timeline?type=${type}&page=${page}`;
+
+  const html = await fetcher<string>(url);
 
   const timeline: Timeline = [];
   const $ = load(html);
@@ -18,7 +23,7 @@ export async function parser(body: TimelinePayload) {
     let avatar = '';
 
     $ul.find('li').each((_, li) => {
-      const $info = $(li).find(body.userId ? '.info_full' : '.info');
+      const $info = $(li).find(userId ? '.info_full' : '.info');
       const $text = $info.contents()
         .filter(function () {
           return this.nodeType === 3 && this.parent === $info[0];
@@ -66,10 +71,10 @@ export async function parser(body: TimelinePayload) {
           if (
             (
               i === 0
-              || (['all', 'relation', ''].every(type => body.type !== type) && href.includes('/user/'))
+              || (['all', 'relation', ''].every(item => item !== type) && href.includes('/user/'))
               || user.name === text
             )
-            && !body.userId
+            && !userId
           ) return;
 
           contents.push({
