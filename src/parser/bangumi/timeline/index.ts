@@ -3,7 +3,7 @@ import { load } from 'cheerio';
 import { host } from '../constans';
 import { fetcher } from '~/lib/fetcher';
 
-import type { TimelinePayload, Timeline, TimelineItem } from '~/types/timeline';
+import type { TimelinePayload, Timeline, TimelineItem } from '~/types/bangumi/timeline';
 
 export async function parser({ userId, type, page }: TimelinePayload) {
   const url = userId

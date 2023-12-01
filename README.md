@@ -125,3 +125,39 @@ interface TimelineItem {
 ```
 
 </details>
+
+# Reviews
+
+获取 Bangumi 条目页面的评论
+
+```http
+GET /reviews?subjectId=69496
+```
+
+| Parameter | Type | Description | Required |
+| :---: | :---: | :---: | :---: |
+| `subjectId` | `number` | 条目 ID | `true` |
+
+# Board
+
+获取 Bangumi 条目页面的讨论版
+
+```http
+GET /board?subjectId=69496
+```
+
+| Parameter | Type | Description | Required |
+| :---: | :---: | :---: | :---: |
+| `subjectId` | `number` | 条目 ID | `true` |
+
+# Comments
+
+获取 Bangumi 条目页面的吐槽
+
+```http
+GET /comments?subjectId=69496
+```
+
+| Parameter | Type | Description | Required |
+| :---: | :---: | :---: | :---: |
+| `subjectId` | `number` | 条目 ID | `true` |
