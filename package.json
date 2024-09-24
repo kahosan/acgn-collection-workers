@@ -7,18 +7,13 @@
   },
   "dependencies": {
     "cheerio": "1.0.0-rc.12",
-    "hono": "^3.8.2",
-    "ts-pattern": "^5.0.5"
+    "hono": "^4.6.3",
+    "ts-pattern": "^5.3.1"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20230914.0",
-    "eslint": "^8.52.0",
-    "eslint-config-kaho": "^2.0.9",
-    "wrangler": "^3.15.0"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "hono@3.9.0": "patches/hono@3.9.0.patch"
-    }
+    "@cloudflare/workers-types": "^4.20240919.0",
+    "eslint": "^9.11.1",
+    "eslint-config-kaho": "^3.1.0",
+    "wrangler": "^3.78.8"
   }
 }
