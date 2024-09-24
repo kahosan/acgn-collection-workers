@@ -24,7 +24,8 @@ export type TimelineType =
   | 'group'
   | 'wiki'
   | 'index'
-  | '';
+  | ''
+  | (string & {});
 
 export interface TimelinePayload {
   userId?: string

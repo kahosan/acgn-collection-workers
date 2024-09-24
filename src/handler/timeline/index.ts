@@ -1,10 +1,9 @@
 import { parser } from '~/parser/bangumi/timeline';
 
 import type { Handler } from 'hono';
-import type { TimelinePayload } from '~/types/bangumi/timeline';
 
-export const handler: Handler = async (c) => {
-  const { userId, type, page } = c.req.query<TimelinePayload>();
+export const handler: Handler = async c => {
+  const { userId, type, page } = c.req.query();
 
   try {
     const timeline = await parser({ userId, type, page });
