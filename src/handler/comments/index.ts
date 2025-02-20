@@ -2,7 +2,7 @@ import { parser } from '~/parser/bangumi/comments';
 
 import type { Handler } from 'hono';
 
-export const handler: Handler = async (c) => {
+export const handler: Handler = async c => {
   const { subjectId } = c.req.query();
 
   try {

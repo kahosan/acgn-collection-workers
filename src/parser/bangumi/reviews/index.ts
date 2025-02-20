@@ -31,9 +31,7 @@ export async function parser(subjectId: string) {
     const time = $time.find('small.time').text();
     const count = $time.find('small.orange').text().replaceAll(/\(\+|\)/g, '');
 
-    const content = $entry.find('.content').text()
-      .replace(/\(more\)$/, '')
-      .replaceAll('\n', '');
+    const content = $entry.find('.content').text().replace(/\(more\)$/, '').replaceAll('\n', '');
 
     reviews.push({
       id: Number.parseInt(id, 10),

@@ -96,7 +96,7 @@ export async function parser({ userId, type, page }: TimelinePayload) {
           .text()
           .trim()
           .split('·')
-          .filter(item => !(item.includes('回复') || item.includes('web')))
+          .filter(item => !item.includes('回复') && !item.includes('web'))
           .join('·'),
         reply,
         action,

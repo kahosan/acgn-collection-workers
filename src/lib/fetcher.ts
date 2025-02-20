@@ -1,4 +1,4 @@
-export const fetcher = async <T>(url: string, options?: RequestInit) => {
+export async function fetcher<T>(url: string, options?: RequestInit) {
   const res = await fetch(url, options);
 
   try {
@@ -16,4 +16,4 @@ export const fetcher = async <T>(url: string, options?: RequestInit) => {
 
     throw error;
   }
-};
+}
